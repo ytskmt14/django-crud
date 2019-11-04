@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse_lazy
 
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Task
 
 # Create your views here.
@@ -24,3 +24,10 @@ class TaskUpdateView(UpdateView):
     template_name = "todo/edit.html"
 
 edit = TaskUpdateView.as_view()
+
+class TaskDeleteView(DeleteView):
+    model = Task
+    success_url = reverse_lazy('todo:index')
+    template_name = "todo/delete.html"
+
+delete = TaskDeleteView.as_view()

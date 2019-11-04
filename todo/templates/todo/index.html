@@ -21,6 +21,7 @@
               <th scope="col">タイトル</th>
               <th scope="col">詳細</th>
               <th scope="col">ステータス</th>
+              <th scope="col"></th>
             </tr>        
           </thead>
           <tbody>
@@ -30,6 +31,7 @@
                 <td>{{ task.title }}</td>
                 <td>{{ task.content }}</td>
                 <td>{{ task.status }}</td>
+                <td><a class="btn btn-danger" href="{% url 'todo:delete' task.id %}">削除</a></td>
               </tr>
             {% endfor %}
           </tbody>
