@@ -14,28 +14,32 @@
         <a class="btn btn-primary" href="{% url 'todo:new' %}">新規作成</a>
       </div>
       <div style="margin-top:30px;">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">タイトル</th>
-              <th scope="col">詳細</th>
-              <th scope="col">ステータス</th>
-              <th scope="col"></th>
-            </tr>        
-          </thead>
-          <tbody>
-            {% for task in task_list %}
+        {% if not task_list %}
+          <p>まだタスクが登録されていません。</p>
+        {% else %}
+          <table class="table">
+            <thead>
               <tr>
-                <td><a href="{% url 'todo:edit' task.id %}">{{ task.id }}</a></td>
-                <td>{{ task.title }}</td>
-                <td>{{ task.content }}</td>
-                <td>{{ task.status }}</td>
-                <td><a class="btn btn-danger" href="{% url 'todo:delete' task.id %}">削除</a></td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+                <th scope="col">#</th>
+                <th scope="col">タイトル</th>
+                <th scope="col">詳細</th>
+                <th scope="col">ステータス</th>
+                <th scope="col"></th>
+              </tr>        
+            </thead>
+            <tbody>
+              {% for task in task_list %}
+                <tr>
+                  <td>{{ task.id }}</td>
+                  <td>{{ task.title }}</td>
+                  <td>{{ task.content }}</td>
+                  <td>{{ task.status }}</td>
+                  <td><a class="btn btn-success" href="{% url 'todo:edit' task.id %}">編集</a>　<a class="btn btn-danger" href="{% url 'todo:delete' task.id %}">削除</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% endif %}
       </div>
     </div>
   </body>
