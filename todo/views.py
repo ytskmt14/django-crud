@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 from .models import Task
 
 # Create your views here.
@@ -17,3 +17,10 @@ class TaskCreateView(CreateView):
     template_name = "todo/new.html"
 
 new = TaskCreateView.as_view()
+
+class TaskUpdateView(UpdateView):
+    model = Task
+    fields = ("title", "content", "status")
+    template_name = "todo/edit.html"
+
+edit = TaskUpdateView.as_view()
