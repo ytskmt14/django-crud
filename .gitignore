@@ -3,7 +3,8 @@
 # Edit at https://www.gitignore.io/?templates=django
 
 ### Django ###
-to/*.log
+config/__pycache__/
+todo/*.log
 todo/*.pot
 todo/*.pyc
 todo/__pycache__/
