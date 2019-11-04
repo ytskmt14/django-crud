@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<html>
+  <head>
+    <title>sample todo app</title>
+  </head>
+  <body>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">タイトル</th>
+            <th scope="col">詳細</th>
+            <th scope="col">ステータス</th>
+          </tr>        
+        </thead>
+        <tbody>
+          {% for task in task_list %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ task.title }}</td>
+              <td>{{ task.content }}</td>
+              <td>{{ task.status }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
