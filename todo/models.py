@@ -19,7 +19,7 @@ class Task(models.Model):
       (DONE, '完了'),
     ]
     title = models.CharField(verbose_name='タイトル', max_length=50)
-    content = models.TextField(verbose_name='詳細')
+    content = models.TextField(verbose_name='詳細', max_length=2000)
     status = models.CharField(verbose_name='ステータス', max_length=4,choices=STATUS,default=OPEN)
     
     def __str__(self):
