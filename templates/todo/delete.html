@@ -1,23 +1,14 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
 {% load static %}
 
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
-
-<html>
-  <head>
-    <title>sample todo app</title>
-  </head>
-  <body>
-    <div class="container">
-      <div style="margin-top:30px;">
-        <form method="post">
-          {% csrf_token %}
-          <p>削除します。よろしいですか？</p>
-          <input class="btn btn-danger" type="submit" value="削除する">
-          <a class="btn btn-outline-dark" href="{% url 'todo:index' %}">戻る</a>
-        </form>
-      </div>
-    </div>
-  </body>
-</html>
+{% block content %}
+  <div style="margin-top:30px;">
+    <form method="post">
+      {% csrf_token %}
+      <p>削除します。よろしいですか？</p>
+      <input class="btn btn-danger" type="submit" value="削除する">
+      <a class="btn btn-outline-dark" href="{% url 'todo:index' %}">戻る</a>
+    </form>
+  </div>
+{% endblock  %}

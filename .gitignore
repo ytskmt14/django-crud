@@ -10,7 +10,7 @@ todo/__pycache__/
 todo/local_settings.py
 todo/db.sqlite3
 todo/media
-config/__pycache__/*.pyc
+config/__pycache__/
 db.sqlite3
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
@@ -139,6 +139,3 @@ dmypy.json
 .pyre/
 
 # End of https://www.gitignore.io/api/django
-
-config/__pycache__/settings.cpython-37.pyc
-config/settings.py

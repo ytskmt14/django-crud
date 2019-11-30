@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<html>
+  <head>
+    <title>sample todo app</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="{% url 'todo:index' %}">Sample todo app</a>
+      </nav>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>
